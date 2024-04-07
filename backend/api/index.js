@@ -56,6 +56,4 @@ app.get('/', (req, res) => {
 // mongoose.connect(process.env.DBURI)
 //     .catch((err) => winston.error(err.message));
 
-app.listen(4000, () => {
-    console.log('HTTP Server running on port  4000');
-});
+module.exports = app;
