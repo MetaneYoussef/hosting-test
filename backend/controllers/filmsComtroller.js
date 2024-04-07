@@ -13,7 +13,7 @@ const options = {
 };
 
 const hello = (req, res) => {
-    return res.status(200).json({ message: 'Hello World!' });
+    return res.status(200).send({ message: 'Hello World!' });
 }
 const trailerFilm = async (movieId) => {
 
