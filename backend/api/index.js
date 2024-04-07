@@ -36,7 +36,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.get('/api/hello', (req, res) => {
+app.get('/hello', (req, res) => {
     res.json({ message: 'Hello World!' });
 });
 // app.use('/api/authRoutes', authRoutes);
