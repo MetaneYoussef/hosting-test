@@ -22,7 +22,9 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-
+app.use(cors({
+    origin: 'https://hosting-test-delta.vercel.app/'
+}));
 
 // Logging des requêtes HTTP avec Morgan et Winston
 app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
@@ -35,7 +37,7 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('API en ligne');
+    res.json({ message: 'Hello World!' });
 });
 app.use('/api/authRoutes', authRoutes);
 app.use('/api/utilisateurs', utilisateursRoutes);
