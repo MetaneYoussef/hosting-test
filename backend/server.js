@@ -34,6 +34,9 @@ app.use(rateLimit);
 app.use(express.json());
 
 // Routes
+app.get('/', (req, res) => {
+    res.send('API en ligne');
+});
 app.use('/api/authRoutes', authRoutes);
 app.use('/api/utilisateurs', utilisateursRoutes);
 app.use('/api/films', filmsRoutes);
