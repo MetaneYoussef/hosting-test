@@ -2,7 +2,7 @@
 
 // const fs = require('fs');
 // // const https = require('https'); // Commenté pour désactiver HTTPS
-const express = require('express');
+// const express = require('express');
 // const mongoose = require('mongoose');
 // const helmet = require('helmet');
 // const cors = require('cors');
@@ -20,7 +20,7 @@ const express = require('express');
 // const seriesRoutes = require('./routes/series');
 // const authRoutes = require('./routes/authRoutes');
 
-const app = express();
+// const app = express();
 // const mongoose = require('mongoose')
 // const cors = require('cors')
 // const RegisterModel = require('./models/Register')
@@ -33,12 +33,12 @@ const app = express();
 // app.use(rateLimit);
 
 // Middleware pour parser le corps des requêtes en JSON
-app.use(express.json());
+// app.use(express.json());
 
-// Routes
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+// // Routes
+// app.get('/', (req, res) => {
+//     res.send('Hello World!')
+// })
 // app.use('/api/authRoutes', authRoutes);
 // app.use('/api/utilisateurs', utilisateursRoutes);
 // app.use('/api/films', filmsRoutes);
@@ -55,4 +55,6 @@ app.get('/', (req, res) => {
 
 // mongoose.connect(process.env.DBURI)
 //     .catch((err) => winston.error(err.message));
-module.exports = app;
+module.exports = (req, res) => {
+    res.status(200).send("Hello, world!");
+};;
