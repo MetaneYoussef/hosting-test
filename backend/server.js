@@ -22,15 +22,23 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://hosting-test-delta.vercel.app/'
-}));
+const express = require('express')
+const mongoose = require('mongoose')
+const cors = require('cors')
+const RegisterModel = require('./models/Register')
 
+
+app.use(cors(
+    {
+        origin: ["https://hosting-test-delta.vercel.app/"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }));
 // Logging des requêtes HTTP avec Morgan et Winston
-app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
+// app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
 
 // Limite le taux de requêtes pour prévenir les attaques DDoS ou de force brute
-app.use(rateLimit);
+// app.use(rateLimit);
 
 // Middleware pour parser le corps des requêtes en JSON
 app.use(express.json());
@@ -45,11 +53,11 @@ app.use('/api/films', filmsRoutes);
 app.use('/api/acteurs', acteursRoutes);
 app.use('/api/series', seriesRoutes);
 
-// Integration de Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// // Integration de Swagger UI
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-// Gestion globale des erreurs
-app.use(errorHandler);
+// // Gestion globale des erreurs
+// app.use(errorHandler);
 
 // Connexion à MongoDB et démarrage du serveur
 mongoose.connect(process.env.DBURI)
