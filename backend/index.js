@@ -28,12 +28,6 @@ const cors = require('cors')
 const RegisterModel = require('./models/Register')
 
 
-app.use(cors(
-    {
-        origin: ["https://hosting-test-delta.vercel.app/"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }));
 // Logging des requêtes HTTP avec Morgan et Winston
 // app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
 
