@@ -55,6 +55,4 @@ app.get('/', (req, res) => {
 
 // mongoose.connect(process.env.DBURI)
 //     .catch((err) => winston.error(err.message));
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
-});
+module.exports = app;
