@@ -72,8 +72,8 @@ mongoose.connect(process.env.DBURI)
         // });
 
         // Utilisation de HTTP plutôt que HTTPS pour le moment
-        app.listen(process.env.PORT || 4000, () => {
-            console.log(`HTTP Server running on port ${process.env.PORT || 4000}`);
+        app.listen(4000, () => {
+            console.log(`HTTP Server running on port  4000`);
         });
     })
     .catch((err) => winston.error(err.message));
