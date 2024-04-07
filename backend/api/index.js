@@ -39,9 +39,6 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
-app.get('/api/hello', (req, res) => {
-    res.json({ message: 'Hello World!' });
-});
 // app.use('/api/authRoutes', authRoutes);
 // app.use('/api/utilisateurs', utilisateursRoutes);
 // app.use('/api/films', filmsRoutes);
