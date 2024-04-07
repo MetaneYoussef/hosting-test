@@ -49,7 +49,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(errorHandler);
 
 // Connexion à MongoDB et démarrage du serveur
-mongoose.connect(process.env.DBURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DBURI)
     .then(() => {
         // const options = {
         //     key: fs.readFileSync('path/to/your/private.key'),
