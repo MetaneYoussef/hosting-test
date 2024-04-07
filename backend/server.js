@@ -60,20 +60,10 @@ app.use('/api/series', seriesRoutes);
 // app.use(errorHandler);
 
 // Connexion à MongoDB et démarrage du serveur
+
 mongoose.connect(process.env.DBURI)
-    .then(() => {
-        // const options = {
-        //     key: fs.readFileSync('path/to/your/private.key'),
-        //     cert: fs.readFileSync('path/to/your/certificate.crt')
-        // };
-
-        // https.createServer(options, app).listen(process.env.PORT || 4000, () => {
-        //     console.log(`HTTPS Server running on port ${process.env.PORT || 4000}`);
-        // });
-
-        // Utilisation de HTTP plutôt que HTTPS pour le moment
-        app.listen(4000, () => {
-            console.log('HTTP Server running on port  40000');
-        });
-    })
     .catch((err) => winston.error(err.message));
+
+app.listen(4000, () => {
+    console.log('HTTP Server running on port  4000');
+});
