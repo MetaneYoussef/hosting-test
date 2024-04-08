@@ -12,9 +12,7 @@ const options = {
     }
 };
 
-const hello = (req, res) => {
-    return res.status(200).send({ message: 'Hello World!' });
-}
+
 const trailerFilm = async (movieId) => {
 
     try {
@@ -253,7 +251,6 @@ const getmovie = async (req, res) => {
 module.exports = {
     discoverMovies,
     searchMovies,
-    getmovie,
-    hello
+    getmovie
 }
 

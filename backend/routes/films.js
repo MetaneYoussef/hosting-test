@@ -6,12 +6,10 @@ const router = express.Router();
 const {
     discoverMovies,
     getmovie,
-    searchMovies,
-    hello
+    searchMovies
 } = require('../controllers/filmsComtroller');
 
 router.get('/', discoverMovies);
-router.get('/hello', hello);
 router.get('/search', searchMovies);
 router.get('/:id', getmovie);
 
