@@ -35,10 +35,10 @@
 // Middleware pour parser le corps des requêtes en JSON
 // app.use(express.json());
 
-// // Routes
-// app.get('/', (req, res) => {
-//     res.send('Hello World!')
-// })
+// Routes
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
 // app.use('/api/authRoutes', authRoutes);
 // app.use('/api/utilisateurs', utilisateursRoutes);
 // app.use('/api/films', filmsRoutes);
@@ -57,4 +57,4 @@
 //     .catch((err) => winston.error(err.message));
 module.exports = (req, res) => {
     res.status(200).send("Hello, world!");
-};;
+};
