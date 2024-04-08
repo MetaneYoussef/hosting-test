@@ -3,10 +3,9 @@ require('dotenv').config();
 // const https = require('https'); // Commenté pour désactiver HTTPS
 const express = require('express');
 const mongoose = require('mongoose');
-// const helmet = require('helmet');
-// const cors = require('cors');
-// const morgan = require('morgan');
-// const winston = require('./config/winston');
+const helmet = require('helmet');
+const cors = require('cors');
+const morgan = require('morgan');
 const rateLimit = require('./utils/rateLimit');
 // const errorHandler = require('./middleware/errorMiddleware');
 // const verifyToken = require('./middleware/authMiddleware');
@@ -21,9 +20,15 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-
+app.use(helmet());
+app.use(cors({
+    origin: ["https://deploy-mern-frontend.vercel.app"],
+    methods: ["POST", "GET", "PATCH"],
+    credentials: true
+}
+));
 // Logging des requêtes HTTP avec Morgan et Winston
-// app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
+app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
 
 // Limite le taux de requêtes pour prévenir les attaques DDoS ou de force brute
 app.use(rateLimit);
