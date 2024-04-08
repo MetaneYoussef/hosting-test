@@ -35,6 +35,9 @@ app.use(rateLimit);
 // Middleware pour parser le corps des requêtes en JSON
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
 // Routes
 app.use('/api/authRoutes', authRoutes);
 app.use('/api/utilisateurs', utilisateursRoutes);
