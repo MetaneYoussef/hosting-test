@@ -24,7 +24,7 @@ app.use(helmet());
 app.use(cors({
     origin: ["https://hosting-test-delta.vercel.app"],
     methods: ["POST", "GET", "PATCH"],
-    credentials: false
+    credentials: true
 }));
 // Logging des requêtes HTTP avec Morgan et Winston
 app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
