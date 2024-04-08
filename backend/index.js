@@ -42,7 +42,7 @@ app.use('/api/acteurs', acteursRoutes);
 app.use('/api/series', seriesRoutes);
 
 // Integration de Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Connexion à MongoDB et démarrage du serveur
 mongoose.connect(process.env.DBURI)
@@ -53,4 +53,4 @@ mongoose.connect(process.env.DBURI)
             console.log(`HTTP Server running on port ${process.env.PORT || 4000}`);
         });
     })
-    .catch((err) => winston.error(err.message));
+    .catch((err) => app.json({ message: err.message }));
