@@ -2,7 +2,7 @@
 
 // const fs = require('fs');
 // // const https = require('https'); // Commenté pour désactiver HTTPS
-// const express = require('express');
+const express = require('express');
 // const mongoose = require('mongoose');
 // const helmet = require('helmet');
 // const cors = require('cors');
@@ -20,7 +20,7 @@
 // const seriesRoutes = require('./routes/series');
 // const authRoutes = require('./routes/authRoutes');
 
-// const app = express();
+const app = express();
 // const mongoose = require('mongoose')
 // const cors = require('cors')
 // const RegisterModel = require('./models/Register')
