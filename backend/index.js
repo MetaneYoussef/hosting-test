@@ -1,16 +1,15 @@
 require('dotenv').config();
 
-const fs = require('fs');
 // const https = require('https'); // Commenté pour désactiver HTTPS
 const express = require('express');
 const mongoose = require('mongoose');
-const helmet = require('helmet');
-const cors = require('cors');
-const morgan = require('morgan');
+// const helmet = require('helmet');
+// const cors = require('cors');
+// const morgan = require('morgan');
 const winston = require('./config/winston');
 const rateLimit = require('./utils/rateLimit');
-const errorHandler = require('./middleware/errorMiddleware');
-const verifyToken = require('./middleware/authMiddleware');
+// const errorHandler = require('./middleware/errorMiddleware');
+// const verifyToken = require('./middleware/authMiddleware');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
@@ -22,9 +21,6 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-// Sécurité de base avec Helmet et CORS
-app.use(helmet());
-app.use(cors());
 
 // Logging des requêtes HTTP avec Morgan et Winston
 // app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
