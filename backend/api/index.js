@@ -55,6 +55,4 @@ app.get('/', (req, res) => {
 
 // mongoose.connect(process.env.DBURI)
 //     .catch((err) => winston.error(err.message));
-module.exports = (req, res) => {
-    res.status(200).send("Hello, world!");
-};
+module.exports = app;
