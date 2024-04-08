@@ -5,7 +5,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
-const morgan = require('morgan');
 const rateLimit = require('./utils/rateLimit');
 // const errorHandler = require('./middleware/errorMiddleware');
 // const verifyToken = require('./middleware/authMiddleware');
@@ -26,8 +25,6 @@ app.use(cors({
     methods: ["POST", "GET", "PATCH"],
     credentials: true
 }));
-// Logging des requêtes HTTP avec Morgan et Winston
-app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
 
 // Limite le taux de requêtes pour prévenir les attaques DDoS ou de force brute
 app.use(rateLimit);
