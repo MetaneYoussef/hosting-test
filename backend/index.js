@@ -37,7 +37,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     res.json("Hello");
-})
+});
 // Routes
 app.use('/api/authRoutes', authRoutes);
 app.use('/api/utilisateurs', utilisateursRoutes);
@@ -52,7 +52,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(errorHandler);
 
 // Connexion à MongoDB et démarrage du serveur
-mongoose.connect(process.env.DBURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DBURI)
     .then(() => {
 
         // Utilisation de HTTP plutôt que HTTPS pour le moment
