@@ -55,4 +55,6 @@ app.get('/', (req, res) => {
 
 // mongoose.connect(process.env.DBURI)
 //     .catch((err) => winston.error(err.message));
-module.exports = app;
+app.listen(process.env.PORT, () => {
+    console.log(`Serveur démarré sur le port ${process.env.PORT}`);
+});
