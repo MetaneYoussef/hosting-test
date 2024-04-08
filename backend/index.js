@@ -27,7 +27,7 @@ app.use(helmet());
 app.use(cors());
 
 // Logging des requêtes HTTP avec Morgan et Winston
-app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
+// app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
 
 // Limite le taux de requêtes pour prévenir les attaques DDoS ou de force brute
 app.use(rateLimit);
@@ -47,9 +47,6 @@ app.use('/api/series', seriesRoutes);
 
 // Integration de Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-// Gestion globale des erreurs
-app.use(errorHandler);
 
 // Connexion à MongoDB et démarrage du serveur
 mongoose.connect(process.env.DBURI)
