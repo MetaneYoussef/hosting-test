@@ -22,11 +22,10 @@ const app = express();
 
 app.use(helmet());
 app.use(cors({
-    origin: ["https://deploy-mern-frontend.vercel.app"],
+    origin: ["https://hosting-test-delta.vercel.app"],
     methods: ["POST", "GET", "PATCH"],
-    credentials: true
-}
-));
+    credentials: false
+}));
 // Logging des requêtes HTTP avec Morgan et Winston
 app.use(morgan('combined', { stream: { write: (message) => winston.info(message.trim()) } }));
 
