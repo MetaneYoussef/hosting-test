@@ -10,8 +10,8 @@ const mongoose = require('mongoose');
 const rateLimit = require('./utils/rateLimit');
 // const errorHandler = require('./middleware/errorMiddleware');
 // const verifyToken = require('./middleware/authMiddleware');
-// const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('./swagger.json');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const utilisateursRoutes = require('./routes/utilisateurs');
 const filmsRoutes = require('./routes/films');
@@ -42,7 +42,7 @@ app.use('/api/acteurs', acteursRoutes);
 app.use('/api/series', seriesRoutes);
 
 // Integration de Swagger UI
-// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Connexion à MongoDB et démarrage du serveur
 mongoose.connect(process.env.DBURI)
